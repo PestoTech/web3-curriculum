@@ -5,9 +5,8 @@
 This repo contains the following examples:
 
 1. Calling another contract functions
-2. Function Selectors
-3. ABI Encoding
-4. Low Level Functions
+2. Special Function Selectors
+3. Low Level Functions
 
 Common Errors:
 1. 
