@@ -45,7 +45,13 @@ contract Employee {
      * then using the first four bytes of the hash value
      */
     function calculateFunctionSelectors() public pure returns (bytes4 , bytes4 ) {
-        bytes4 selector1 = bytes4(keccak256(bytes("setEmployeeID(uint256)")));
+        // Calculating it step by step:
+		// bytes4 selector1 = bytes4(keccak256(bytes("setEmployeeID(uint256)")));
+		bytes memory functionSignature = bytes("setEmployeeID(uint256)");
+        bytes32 hashOfFunctionSignature = keccak256(functionSignature);
+        bytes4 selector1 = bytes4(hashOfFunctionSignature);
+
+        // inlining the function calls
         bytes4 selector2 = bytes4(keccak256(bytes("setEmployeeName(string)")));
 
         return (selector1, selector2);

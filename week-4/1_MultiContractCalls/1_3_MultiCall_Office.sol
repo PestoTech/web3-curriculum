@@ -9,6 +9,15 @@ pragma solidity ^0.8.17;
  */
 
 interface Employee {
+
+    enum EmployeeType {INTERN, PERMANENT, CONTRACT}
+    
+    struct EmployeeName {
+        string firtstName;
+        string middleName;
+        string lastName;
+    }
+    
     function setEmployeeID(uint _eid) external returns (uint);
     function setEmployeeName(string memory _name) external payable returns (string memory, uint value);
 }
