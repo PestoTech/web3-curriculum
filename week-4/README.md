@@ -7,6 +7,9 @@ This repo contains the following examples:
 1. Calling another contract functions
 2. Special Function Selectors
 3. Low Level Functions
+4. Inheritance
+5. Abstract Contracts
+6. Interfaces
 
 Common Errors:
 1. 
