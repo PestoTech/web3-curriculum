@@ -20,15 +20,17 @@ abstract contract Snail is Animal {
     }
 }
 
-// Inheriting multiple interfaces
-// Remember 'TURBO' from the animation movie, a snail with superpowers... 
+// Inheriting from an interfaces
+// Remember 'TURBO' from the animation movie, a racer snail with superpowers... 
 contract TURBO is SuperAnimal {
-    // Implementing interface function 'movement'
-    function movement() public pure returns (string memory){
+    
+    // Implementing interface function 'movement' from 'Animal' Interface
+    function movement() public pure override returns (string memory){
         return 'Race with light speed...';
     }
 
-    function voice() public pure returns (string memory){
+    // Implementing interface function 'voice' from 'SuperAnimal' Interface
+    function voice() public pure override returns (string memory){
         return 'It talks, in mexican accent !!';
     }
 }

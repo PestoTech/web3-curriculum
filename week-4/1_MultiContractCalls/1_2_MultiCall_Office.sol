@@ -12,7 +12,7 @@ import "./1_1_MultiCall_Employee.sol";
 contract Office {
 
     /**
-     * @dev setEID
+     * @dev setEID sets the employeeID on the employee contract
      * @param _emp address of the employee contract
      * @param _eid value to store
      */
@@ -21,7 +21,7 @@ contract Office {
     }
 
     /**
-     * @dev setNameandSendEther : sets name and forwards ether to calling function
+     * @dev setNameandSendEther : sets name and forwards ether to setEmployeeName on employee contract
      * @param _emp address of the employee contract
      * @param _name value to store
      */

@@ -6,6 +6,9 @@ pragma solidity ^0.8.17;
  * Observe that Employee Interface is being defined here. 
  * Important to note how the interface to a contract can be defined on demand.
  * Alternatively one can define the same interface is a different file and import that here aswell.
+ *
+ * Note: One can use the address of the already deployed Employee contract from previous example
+ * or deploy a new instance and use the new address of Employee contract.
  */
 
 interface Employee {
@@ -29,7 +32,7 @@ interface Employee {
 contract Office {
 
     /**
-     * @dev setEID
+     * @dev setEID sets the employeeID on the employee contract
      * @param _emp address of the employee contract
      * @param _eid value to store
      */
@@ -38,7 +41,7 @@ contract Office {
     }
 
     /**
-     * @dev setNameandSendEther : sets name and forwards ether to calling function
+     * @dev setNameandSendEther : sets name and forwards ether to setEmployeeName on employee contract
      * @param _emp address of the employee contract
      * @param _name value to store
      */

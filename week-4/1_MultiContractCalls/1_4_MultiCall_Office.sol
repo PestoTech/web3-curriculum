@@ -5,13 +5,16 @@ pragma solidity ^0.8.17;
 /**
  * @title Office
  * Contract with to set state variables employeeID and employeeName in the deployed emp contract.
+ *
+ * Note: One can use the address of the already deployed Employee contract from previous example
+ * or deploy a new instance and use the new address of Employee contract.
  */
 contract Office {
 
     event Response(bool status, bytes data );
 
     /**
-     * @dev setEID
+     * @dev setEID sets the employeeID on the employee contract
      * @param _emp address of the employee contract
      * @param _eid value to store
      */
@@ -26,7 +29,7 @@ contract Office {
     }
 
     /**
-     * @dev setNameandSendEther : sets name and forwards ether to calling function
+     * @dev setNameandSendEther : sets name and forwards ether to setEmployeeName on employee contract
      * @param _emp address of the employee contract
      * @param _name value to store
      */
