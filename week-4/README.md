@@ -10,6 +10,11 @@ This repo contains the following examples:
 4. Inheritance
 5. Abstract Contracts
 6. Interfaces
+7. Libraries
+8. NewAndSalt
+9. ErrorHandling
+10. Remix
+11. SelfDestruct
 
 Common Errors:
 1. 
