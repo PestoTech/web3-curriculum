@@ -13,25 +13,15 @@ async function main() {
     const TOTAL_TOKEN_SUPPLY = hre.ethers.utils.parseEther(SUPPLY);
 
     // Contracts are deployed using the first signer/account by default
-    const [deployer, tokenBuyer] = await hre.ethers.getSigners();
+    const [tokenCreator, tokenBuyer] = await hre.ethers.getSigners();
 
-    console.log("Deploying contracts with the account:", deployer.address);
+    console.log("Deploying contracts with the account:", tokenCreator.address);
 
-    console.log("Account balance:", (await deployer.getBalance()).toString());
+    console.log("Account balance:", (await tokenCreator.getBalance()).toString());
 
-    /*
-      Pick the relevant contract artifacts from the artifacts directory
-      A ContractFactory in ethers.js is an abstraction used to deploy new smart contracts,
-      so MPG here is a factory for instances of our MyPestoGems contract.
-      The hardhat-ethers plugin ContractFactory and Contract, instances are connected
-      to the first signer (owner) by default.
-    */
+    // Pick the relevant contract artifacts from the artifacts directory
     const MPG = await hre.ethers.getContractFactory("MyPestoGems");
-    /* Deploy an instance of the contract
-       Calling deploy() on a ContractFactory will start the deployment,
-       and return a Promise that resolves to a Contract object.
-       This is the object that has a method for each of our smart contract functions.
-    */
+    // Deploy an instance of the contract
     const mpg = await MPG.deploy(SUPPLY);
     // Wait for the contract to be deployed
     await mpg.deployed();
