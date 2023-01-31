@@ -20,7 +20,7 @@ contract TokenSale is Ownable {
     }
 
     function buyTokens() external payable {
-        require(msg.value >= 1 ether, "Required Ether not sent");
+        require(msg.value >= 100000000000000000 wei, "Required Ether not sent");
 
         uint256 saleCount = msg.value * pricePerEth;
 

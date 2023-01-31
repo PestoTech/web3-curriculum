@@ -1,4 +1,4 @@
 module.exports = {
-    MyPestoGemsContractAddress : '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-    TokenSaleContractAddress : '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
+    MyPestoGemsContractAddress : '0x5EEB134E25DB07ECB3b13C9042f5FE43F4E58805',
+    TokenSaleContractAddress : '0x6D4CB046126EB83248f85E7340A12cc7c25665F1'
 }

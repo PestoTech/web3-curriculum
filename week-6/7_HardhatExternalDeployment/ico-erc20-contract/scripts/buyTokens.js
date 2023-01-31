@@ -38,7 +38,7 @@ async function main() {
 
     console.log('-------------------------Approval Transaction---------------------------');
     
-    // Provide required approval
+   //  Provide required approval
     const approvalTX = await mpg.approve(tokenSale.address, tokenSupply);
     await approvalTX.wait();
     /* A call to .wait() on the returned transaction object. 
@@ -52,9 +52,9 @@ async function main() {
     console.log(`Approved Alloance: ${hre.ethers.utils.formatEther(allowance)}`);
 
     // Buy Tokens
-    const ONE_ETH = ethers.utils.parseEther("1.0");
+    const POINT_ONE_MATIC = ethers.utils.parseEther("0.1");
     console.log('-------------------------BuyTokens Transaction---------------------------');
-    let buyTx = await tokenSale.connect(tokenBuyer).buyTokens({ value: ONE_ETH });
+    let buyTx = await tokenSale.connect(tokenBuyer).buyTokens({ value: POINT_ONE_MATIC });
     await buyTx.wait();
     console.log(buyTx);
 
@@ -67,7 +67,7 @@ async function main() {
     console.log(`Buyer owned tokens: ${ hre.ethers.utils.formatEther(buyerBalance)} MPG`);
 
     let icoContractFunds = await ethers.provider.getBalance(tokenSale.address);
-    console.log(`Final TokenSale Balance: ${hre.ethers.utils.formatEther(icoContractFunds)} ETH`);
+    console.log(`Final TokenSale Balance: ${hre.ethers.utils.formatEther(icoContractFunds)} MATIC`);
 }
 
 // Use this pattern to be able to use async/await everywhere and properly handle errors.
