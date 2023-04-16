@@ -1,0 +1,47 @@
+1. Loading the necessary files
+const hre = require("hardhat");
+const {MyPestoGemsContractAddress, TokenSaleContractAddress} = require('./scripts/constants.js');
+const MyPestoGemsArtifact = require("./artifacts/contracts/MyPestoGems.sol/MyPestoGems.json");
+const TokenSaleArtifact = require("./artifacts/contracts/TokenSale.sol/TokenSale.json");
+
+2. Setting up required variable
+const [deployer, tokenBuyer] = await hre.ethers.getSigners();
+const ONE_ETH = ethers.utils.parseEther("1.0");
+
+3. Creating the ethersjs contract instance
+const mpg = new hre.ethers.Contract(MyPestoGemsContractAddress, MyPestoGemsArtifact.abi, deployer);
+const tokenSale = new hre.ethers.Contract(TokenSaleContractAddress, TokenSaleArtifact.abi, deployer);
+
+4. Get Token's Name
+await mpg.name();
+
+5. Get Token's TotalSupply
+let tokenSupply = await mpg.totalSupply();
+
+6. Initial state: MPG Creator owned tokens
+await mpg.balanceOf(deployer.address);
+
+7. TokenSale Owner
+await tokenSale.owner();
+
+8. Initial State: TokenSale Contract Balance
+await ethers.provider.getBalance(tokenSale.address);
+
+9. Approve Tokens for sale
+
+await mpg.approve(tokenSale.address, tokenSupply);
+
+10. Check the approved limit
+await mpg.allowance(deployer.address, tokenSale.address);
+
+11. Buy Tokens
+await tokenSale.connect(tokenBuyer).buyTokens({ value: ONE_ETH });
+
+12. Token deployer/creator balance after transaction
+await mpg.balanceOf(deployer.address);
+
+13. Token buyer balance after transaction
+await mpg.balanceOf(tokenBuyer.address);
+
+14. Funds in the TokenSale Contract
+await ethers.provider.getBalance(tokenSale.address);
